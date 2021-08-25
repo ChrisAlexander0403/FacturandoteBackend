@@ -7,8 +7,9 @@ function paymentInfoValidation(data) {
             .required()
             .min(5)
             .matches(/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+/),
-        enterprise: yup
-            .string().trim()
+        phone: yup
+            .number()
+            .positive()
             .required(),
         reason: yup
             .string().trim()

@@ -17,7 +17,7 @@ io.on('connection', socket => {
 app.set('port', process.env.PORT || 8000)
 
 //middlewares
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 // app.use(express.urlencoded({ extended: true}));
 app.use(fileUpload());
