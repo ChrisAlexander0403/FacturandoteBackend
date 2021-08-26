@@ -14,7 +14,6 @@ function paymentInfoValidation(data) {
         reason: yup
             .string().trim()
             .required()
-            .matches(/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+/)
             .min(3),
         rfc: yup.string()
             .required()
@@ -34,7 +33,7 @@ function contactMailValidation(data) {
             .string().trim()
             .required("El nombre es requerido")
             .min(5, "El nombre no puede ser tan corto")
-            .matches(/^[a-zA-z ,.'-]+$/, "No puedes ingresar números"),
+            .matches(/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+/, "Ingresa un nombre válido"),
         email: yup.string()
             .email("Dirección de correo no válida")
             .required("La dirección de correo no puede estar vacía"),
@@ -55,22 +54,21 @@ function distributorMailValidation(data) {
         city: yup
             .string().trim()
             .required()
-            .matches(/^[a-zA-z ,.'-]+$/),
+            .matches(/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+/),
         state: yup
             .string().trim()
             .required()
-            .matches(/^[a-zA-z ,.'-]+$/),
+            .matches(/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+/),
         name: yup
             .string().trim()
             .required()
             .min(5)
-            .matches(/^[a-zA-z ,.'-]+$/),
+            .matches(/[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]+/),
         phone: yup.string()
             .required().matches(/^[0-9]{10}/),
         email: yup.string()
             .email()
-            .required(),
-        message: yup.string().required()
+            .required()
     });
     schema.validateSync(data, { abortEarly: false });
 }
